@@ -11,12 +11,10 @@ Below are shown the density of states for the various transformers both trained 
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<object data="./plots/dos_opt-125m.pdf" type="application/pdf" width="33%"></object> | <object data="./plots/dos_opt-350m.pdf" type="application/pdf" width="33%"></object>|<object data="./plots/dos_opt-1.3b.pdf" type="application/pdf" width="33%"></object>|
-
-|<img width="1604" alt="" src="./plots/dos_opt-125m.pdf"> | <img width="1604" alt="" src="./plots/dos_opt-350m.pdf">|<img width="1604" alt="" src="./plots/dos_opt-1.3b.pdf">|
-|<img width="1604" alt="" src="./plots/dos_gpt2.pdf"> | <img width="1604" alt="" src="./plots/dos_gpt2-medium.pdf">|<img width="1604" alt="" src="./plots/dos_bloom.pdf">|
-|<img width="1604" alt="" src="./plots/dos_vit.pdf"> | <img width="1604" alt="" src="./plots/dos_deit.pdf">|<img width="1604" alt="" src="./plots/dos_beit/pdf">|
-|<img width="1604" alt="" src="./plots/dos_bert-base.pdf"> | <img width="1604" alt="" src="./plots/dos_bert-large.pdf">| |
+|<img width="1604" alt="" src="./plots/dos_opt-125m.png"> | <img width="1604" alt="" src="./plots/dos_opt-350m.png">|<img width="1604" alt="" src="./plots/dos_opt-1.3b.png">|
+|<img width="1604" alt="" src="./plots/dos_gpt2.png"> | <img width="1604" alt="" src="./plots/dos_gpt2-medium.png">|<img width="1604" alt="" src="./plots/dos_bloom.png">|
+|<img width="1604" alt="" src="./plots/dos_vit.png"> | <img width="1604" alt="" src="./plots/dos_deit.png">|<img width="1604" alt="" src="./plots/dos_beit.png">|
+|<img width="1604" alt="" src="./plots/dos_bert-base.png"> | <img width="1604" alt="" src="./plots/dos_bert-large.png">| |
 
 
 ## Citation
