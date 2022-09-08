@@ -30,6 +30,8 @@ Since the same distribution of values is guaranteed through shuffling, differenc
 ## Shuffling and Accuracy
 The density of states are compared between networks using different amounts of shuffling. Below are shown the difference in widths of the density of states, $\Delta$, as a function of the fraction $f$ of values being shuffled. The plot shows that $W$ drops rapidly and approaches that of a random network ($f=1$) after more than $20\%$ of the values have been shuffled. To generate the plots, run `python fraction.py`.
 
+
+| | |
 |<img width="1604" alt="" src="./plots/fraction.png"> | <img width="1604" alt="" src="./plots/accuracy.png">|
 
 ## Specific Heat
