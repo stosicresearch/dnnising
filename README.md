@@ -7,12 +7,13 @@ This work (see https://arxiv.org/abs/2207.01169) maps deep neural networks to cl
 Simulations are conducted on a range of pretrained deep neural networks available in [Huggingface](https://huggingface.co/), which cover both encoder- and decoder-based transformers of various sizes or language and vision tasks. The deep neural networks analyzed include: [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2), [OPT](https://huggingface.co/docs/transformers/model_doc/opt), [Bloom](https://huggingface.co/docs/transformers/model_doc/bloom), [BERT](https://huggingface.co/docs/transformers/model_doc/bert), [BeiT](https://huggingface.co/docs/transformers/model_doc/beit), [DeiT](https://huggingface.co/docs/transformers/model_doc/deit), and [ViT](https://huggingface.co/docs/transformers/model_doc/vit).
 
 This repository provides results from the different experiments. The data is organized as follows:
-* `dos/`: Density of states of trained and shuffled networks. For each text file, the first column represents the energy $E$ and the second column denotes the density of states $ln\; g(E)/N$ normalized by the number of spins $N$.
-* `blocks`: Denisty of states for trained and shuffled networks where Ising models are constructed using a varying number of transformer layers (e.g., `blocks4` means Ising models are constructed from four transformer layers).
-* `fraction`: Density of states for networks where a different fraction of weights are shuffled (e.g., `fraction0.01` means $1\%$ are shuffled).
+* `dos/`: Density of states of trained and shuffled networks. For each text file, the first column represents the energy $E$ and the second column denotes the density of states $ln\, g(E)/N$ normalized by the number of spins $N$.
+* `blocks/`: Denisty of states for trained and shuffled networks where Ising models are constructed using a varying number of transformer layers (e.g., `blocks4` means Ising models are constructed from four transformer layers).
+* `fraction/`: Density of states for networks where a different fraction of weights are shuffled (e.g., `fraction0.01` means $1\%$ are shuffled).
+* `specificheat/`: The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T and the second column denotes the specific heat $C(T)$.
 
 ## Density of States
-Below are shown the density of states for the various transformers both trained and after their values have been shuffled, representing untrained models without changing the distribution of weights. It can be observed that well-trained models span a much wider range of energies that can be realized compared to after shuffling, which represent poorly trained networks.
+Below are shown the density of states for the various transformers both trained and after their values have been shuffled, representing untrained models without changing the distribution of weights. It can be observed that well-trained models span a much wider range of energies that can be realized compared to after shuffling, which represent poorly trained networks. To generate the plots, run `python dos.py` for the different models.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -20,6 +21,16 @@ Below are shown the density of states for the various transformers both trained 
 |<img width="1604" alt="" src="./plots/dos_gpt2.png"> | <img width="1604" alt="" src="./plots/dos_gpt2-medium.png">|<img width="1604" alt="" src="./plots/dos_bloom.png">|
 |<img width="1604" alt="" src="./plots/dos_vit.png"> | <img width="1604" alt="" src="./plots/dos_deit.png">|<img width="1604" alt="" src="./plots/dos_beit.png">|
 |<img width="1604" alt="" src="./plots/dos_bert-base.png"> | <img width="1604" alt="" src="./plots/dos_bert-large.png">| |
+
+## Structures
+Since the same distribution of values is guaranteed through shuffling, differences in the density of states must arise due to structure, or how weights are arranged in a neural network. The question then arises whether these structures exist in a subset of layers. Below are shown the difference in widths of the density of states, $\Delta = W_{train} - W_{shuffled}$, where $W=E_{max}-E_{min}$ for different number of transformer layers $l$ that participate in the Ising model. From the plot, it can be observed that $\Delta$ increases when adding more layers, which implies that structures appear throughout the entire network rather than in a few layers. To generate the plot, run `python blocks.py`.
+
+<img width="1604" alt="" src="./plots/blocks.png">
+
+## Shuffling and Accuracy
+The density of states are compared to different amounts of shuffling
+
+## Specific Heat
 
 
 ## Citation
