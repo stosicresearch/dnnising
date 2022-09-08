@@ -32,6 +32,7 @@ The density of states are compared between networks using different amounts of s
 
 
 | | |
+|:-------------------------:|:-------------------------:|
 |<img width="1604" alt="" src="./plots/fraction.png"> | <img width="1604" alt="" src="./plots/accuracy.png">|
 
 ## Specific Heat
