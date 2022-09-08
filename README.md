@@ -36,7 +36,7 @@ The density of states are compared between networks using different amounts of s
 |<img width="1604" alt="" src="./plots/fraction.png"> | <img width="1604" alt="" src="./plots/accuracy.png">|
 
 ## Specific Heat
-Lastly, the specific heat $C(T)$ is computed from the density of states for trained and shuffled networks, as shown below. The figure suggests that different networks acquire different specific heat curves, and the critical temperature $T_c$ (i.e., temperature $T$ that maximizes $C(T)$) also varies between networks, as well as between trained and shuffled. To generate the plots, run `python specificheat.py`.
+Lastly, the specific heat $C(T)$ is computed from the density of states for trained and shuffled networks, as shown below. The figure suggests that different networks acquire different specific heat curves, and the critical temperature $T_c$ (i.e., temperature $T$ that maximizes $C(T)$ ) also varies between networks, as well as between trained and shuffled. To generate the plots, run `python specificheat.py`.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
