@@ -28,7 +28,7 @@ Since the same distribution of values is guaranteed through shuffling, differenc
 <img width="1604" alt="" src="./plots/blocks.png">
 
 ## Shuffling and Accuracy
-The density of states are compared between networks using different amounts of shuffling. Below are shown the difference in widths of the density of states, $\Delta$, as a function of the fraction $f$ of values being shuffled. The plot shows that $W$ drops rapidly and approaches that of a random network ($f=1$) after more than $20\%$ of the values have been shuffled. To generate the plots, run `python fraction.py`.
+The density of states are compared between networks using different amounts of shuffling. Below are shown the widths $W$ of the density of states for various networks as a function of the fraction $f$ of values being shuffled. The plot shows that $W$ drops rapidly and approaches that of a random network ( $f=1$ ) after more than $20%$ of the values have been shuffled. We also show percentage of task error achieved on tasks for the same networks, where it is found that $W$ decreases as the task error increases, which implies that the density of states correlates to accuracy on actual tasks. To generate the plots, run `python fraction.py` and `python accuracy.py`.
 
 
 | | |
