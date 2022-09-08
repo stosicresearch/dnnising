@@ -11,7 +11,7 @@ This repository provides data from the different experiments, which is organized
 * `blocks/` Density of states for trained and shuffled networks where Ising models are constructed using a varying number of transformer layers (e.g., `blocks4` means Ising models are constructed from four transformer layers).
 * `fraction/` Density of states for networks where a different fraction of weights are shuffled (e.g., `fraction0.01` means $1\%$ are shuffled).
 * `accuracy/` Accuracy achieved during inference after shuffling weights of the trained networks. For each text file, the first column represents the shuffling fraction $f$ and the second column denotes the task metric (i.e., accuracy for ImageNet, and PPL for the language tasks).
-* `specificheat/` The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T and the second column denotes the specific heat $C(T)$.
+* `specificheat/` The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T$ and the second column denotes the specific heat $C(T)$.
 
 ## Density of States
 Below are shown the density of states for the various transformers both trained and after their values have been shuffled, representing untrained models without changing the distribution of weights. It can be observed that well-trained models span a much wider range of energies that can be realized compared to after shuffling, which represent poorly trained networks. To generate the plots, run `python dos.py` for the different models.
