@@ -23,12 +23,14 @@ Below are shown the density of states for the various transformers both trained 
 |<img width="1604" alt="" src="./plots/dos_bert-base.png"> | <img width="1604" alt="" src="./plots/dos_bert-large.png">| |
 
 ## Structures
-Since the same distribution of values is guaranteed through shuffling, differences in the density of states must arise due to structure, or how weights are arranged in a neural network. The question then arises whether these structures exist in a subset of layers. Below are shown the difference in widths of the density of states, $\Delta = W_{train} - W_{shuffled}$, where $W=E_{max}-E_{min}$ for different number of transformer layers $l$ that participate in the Ising model. From the plot, it can be observed that $\Delta$ increases when adding more layers, which implies that structures appear throughout the entire network rather than in a few layers. To generate the plot, run `python blocks.py`.
+Since the same distribution of values is guaranteed through shuffling, differences in the density of states must arise due to structure, or how weights are arranged in a neural network. The question then arises whether these structures exist in a subset of layers. Below are shown the difference in widths of the density of states, $\Delta = W_{train} - W_{shuffled}$ where $W=E_{max}-E_{min}$ , for different number of transformer layers $l$ that participate in the Ising model. From the plot, it can be observed that $\Delta$ increases when adding more layers, which implies that structures appear throughout the entire network rather than in a few layers. To generate the plot, run `python blocks.py`.
 
 <img width="1604" alt="" src="./plots/blocks.png">
 
 ## Shuffling and Accuracy
-The density of states are compared to different amounts of shuffling
+The density of states are compared between networks using different amounts of shuffling. Below are shown the difference in widths of the density of states, $\Delta$, as a function of the fraction $f$ of values being shuffled. The plot shows that $W$ drops rapidly and approaches that of a random network ($f=1$) after more than $20\%$ of the values have been shuffled. To generate the plots, run `python fraction.py`.
+
+<img width="1604" alt="" src="./plots/fraction.png">
 
 ## Specific Heat
 
