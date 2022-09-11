@@ -21,7 +21,7 @@ This repository provides data from the different experiments, which is organized
 * `specificheat/` The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T$ and the second column denotes the specific heat $C(T)$.
 
 ## Density of States
-Below are shown the density of states for the various transformers both trained and after their values have been shuffled, representing untrained models without changing the distribution of weights. It can be observed that well-trained models span a much wider range of energies that can be realized compared to after shuffling, which represent poorly trained networks. To generate the plots, run `python dos.py` for the different models.
+Below are shown the density of states for the various transformers both trained and after their values have been shuffled, representing untrained networks without changing the distribution of weights. It can be observed that well-trained networks span a much wider range of energies that can be realized compared to after shuffling, which represent poorly trained networks. To generate the plots, run `python dos.py` for the different networks.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -51,7 +51,7 @@ The plots show that $W$ decreases as the task error $\mathcal{E}$ increases, whi
 |<img width="1604" alt="" src="./plots/fraction.png"> | <img width="1604" alt="" src="./plots/accuracy.png">|
 
 ## Other Thermodynamic Variables: Specific Heat
-Lastly, the specific heat $C(T)$ is computed from the density of states for trained and shuffled networks, as shown below. The figure suggests that different networks acquire different specific heat curves, and the critical temperature $T_c$ (i.e., temperature $T$ that maximizes $C(T)$ ) also varies between networks, as well as between trained and shuffled. To generate the plots, run `python specificheat.py`.
+Lastly, the specific heat $C(T)$ is computed from the density of states for trained and shuffled networks, as shown below. The figure suggests that different networks acquire different specific heat curves, and the critical temperature $T_c$ (i.e., temperature $T$ that maximizes $C(T)$ ) also varies between networks, as well as between trained and shuffled. To generate the plots, run `python specificheat.py` for the different networks.
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
