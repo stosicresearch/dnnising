@@ -40,11 +40,11 @@ The density of states are compared between networks using different amounts of s
 
 $$
 \begin{align}
-\mathcal{E}=\frac{|\mathcal{M}_{trained}-\mathcal{M}_{shuffled}|}{\mathcal{M}_{trained}}\times100
+\mathcal{E}=\frac{\|\mathcal{M}_{trained}-\mathcal{M}_{shuffled}\|}{\mathcal{M}_{trained}}\times100
 \end{align}
 $$
 
-The plots show that $W$ decreases as the task error $mathcal{E}$ increases, which implies that the density of states correlates to performance on actual tasks. To generate the plots, run `python fraction.py` and `python accuracy.py`.
+The plots show that $W$ decreases as the task error $\mathcal{E}$ increases, which implies that the density of states correlates to performance on actual tasks. To generate the plots, run `python fraction.py` and `python accuracy.py`.
 
 | | |
 |:-------------------------:|:-------------------------:|
