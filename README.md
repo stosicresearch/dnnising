@@ -35,10 +35,6 @@ Below are shown the density of states for the various transformers both trained 
 ## Structures
 Since the same distribution of values is guaranteed through shuffling, differences in the density of states must arise due to structure, or how weights are arranged in a neural network. The question then arises whether these structures exist in a subset of layers. Below are shown the difference in widths of the density of states, $\Delta = W_{train} - W_{shuffled}$ where $W=E_{max}-E_{min}$ , for different number of transformer layers $l$ that participate in the Ising model. From the plot, it can be observed that $W$ increases when adding more layers, which implies that structures appear throughout the entire network rather than in a few layers. To generate the plot, run `python blocks.py`.
 
-<br/>
-<br/>
-<br/>
-
 ## Shuffling and Performance on Tasks
 The density of states are compared between networks using different amounts of shuffling. Below are shown the widths $W$ of the density of states for various networks as a function of the fraction $f$ of values being shuffled. The plot shows that $W$ drops rapidly and approaches that of a random network ( $f=1$ ) after more than $20$ percent of the values have been shuffled. We also show the task error $\mathcal{E}$ achieved on tasks for the same networks, which are computed as the relative change in evaluation metrics, $\mathcal{M}$, between trained networks and after shuffling,
 
@@ -77,7 +73,7 @@ year = {2022},
 ```
 
 ## Contact
-Dusan Stosic (dbstosic@gmail.com)
-Darko Stosic (ddstosic@bu.edu)
-Tatijana Stosic (tastosic@gmail.com)
+Dusan Stosic (dbstosic@gmail.com)<br/>
+Darko Stosic (ddstosic@bu.edu)<br/>
+Tatijana Stosic (tastosic@gmail.com)<br/>
 Borko Stosic (borkostosic@gmail.com)
