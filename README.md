@@ -1,7 +1,14 @@
 # Ising models of deep neural networks 
 
 ## Introduction
-This work (see arxiv paper) maps deep neural networks to classical Ising spin models, allowing them to be described using statistical thermodynamics. The density of states shows that structures emerge in the weights after they have been trained – well-trained networks span a much wider range of realizable energy values compared to poorly trained ones. Structures permeate throughout the entire network and cannot be observed in a few selected layers. Moreover, the energy values correlate to task accuracy, making it possible to distinguish models based on quality, something that is rather difficult without access to data. Lastly, thermodynamic properties such as specific heat are also studied.
+While deep neural networks have emerged as a disruptive technology capable of solving a range of complex problems, the underlying mechanisms that makes them so effective continue to elude us. For example, there remains no clear way to distinguish a well- from a poorly- trained network other than through evaluation on tasks, which by itself can be insufficient to determine whether a network has been properly trained.
+
+Understanding deep neural networks is reminiscent of thermodynamics, where billions of parameters (or particles) interact with each other in simple ways that give rise to collective behavior (or thermodynamic laws) that cannot be described by their individual parts. This work (see arXiv paper) takes a thermodynamics approach to
+analyze deep neural networks by mapping them to classical Ising spin models, allowing them to be described using statistical thermodynamics. With this formulation, the weights of a neural network represent exchange interactions that can be studied using various properties of spin models, unconvering a swath of interesting phenomena:
+* The density of states shows that structures emerge in the weights after they have been trained – well-trained networks span a much wider range of realizable energies compared to poorly trained ones.
+* These structures propagate throughout the entire network and are not observed in individual layers.
+* The energy values correlate to performance on tasks, making it possible to distinguish networks based on quality, which is rather difficult without access to data.
+* Thermodynamic properties such as specific heat show that trained networks achieve higher critical temperatures than after shuffling.
 
 ## Data
 Simulations are conducted on a range of pretrained deep neural networks available in [Huggingface](https://huggingface.co/), which cover both encoder- and decoder-based transformers of various sizes or language and vision tasks. The deep neural networks analyzed include: [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2), [OPT](https://huggingface.co/docs/transformers/model_doc/opt), [Bloom](https://huggingface.co/docs/transformers/model_doc/bloom), [BERT](https://huggingface.co/docs/transformers/model_doc/bert), [BeiT](https://huggingface.co/docs/transformers/model_doc/beit), [DeiT](https://huggingface.co/docs/transformers/model_doc/deit), and [ViT](https://huggingface.co/docs/transformers/model_doc/vit).
@@ -50,7 +57,7 @@ Lastly, the specific heat $C(T)$ is computed from the density of states for trai
 If you use this work in academic research, we would appreciate citations to the following reference:
 
 ```
-@misc{stosic2022ising,
+@article{stosic2022ising,
 title = {Ising models of deep neural networks}, 
 author = {Dusan Stosic and Darko Stosic and Tatijana Stosic and Borko Stosic},
 year = {2022},
