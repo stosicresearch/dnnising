@@ -4,7 +4,7 @@ import glob
 import os
 
 # Critical temperature Tc
-files = glob.glob('specificheat/*.dat')
+files = glob.glob('specificheat_normalized/*.dat')
 for f in files:
     data = np.loadtxt(f)
 
@@ -37,14 +37,12 @@ models.append(models[0]+'_shuffled')
 for m in models:
     y[m] = []
 
-    data = np.loadtxt('specificheat/C_'+m+'.dat')
+    data = np.loadtxt('specificheat_normalized/C_'+m+'.dat')
 
     t = data[:,0]
     c = data[:,1]
 
     x[m] = t
-    y[m] = c * 100
+    y[m] = c #* 100
 
-plots.plot_single(x, y, 'C_'+models[0], xlabel='$T$', ylabel='$C(T)\;\; (J\,/\,T\; 10^{-2})$', marker=['o-','^-','s-','P-'], colors=['tab:cyan', 'tab:green', 'tab:pink', 'tab:brown'], grid=True, axissize=12, markersize=3, legendloc='upper right', xmin=0, xmax=0.4, ymin=1.1, ymax=1.8, extension='.png')#, bbox_inches="tight")
-
-    
+plots.plot_single(x, y, 'C_'+models[0], xlabel='$T$', ylabel='$C(T)$', marker=['-','--'], colors=['black', 'tab:blue'], grid=True, axissize=12, markersize=3, legendloc='upper right', xmin=0, xmax=1, ymin=0, ymax=1.2, extension='.png')#, bbox_inches="tight")

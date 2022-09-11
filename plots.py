@@ -15,7 +15,7 @@ def thousands(x, pos):
     'The two args are the value and tick position'
     return '%1.0fK' % (x*1e-3)
 
-def plot_single(x, y, name, title=None, xlabel=None, ylabel=None, marker=['-'], markersize=5, xmin=None, xmax=None, ymin=None, ymax=None, xunits='', yunits='', legendloc=None, colors=None, grid=False, fontsize=None, axissize=None, bbox_inches=None, extension='.pdf'):
+def plot_single(x, y, name, title=None, xlabel=None, ylabel=None, marker=['-'], markersize=5, xmin=None, xmax=None, ymin=None, ymax=None, xunits='', yunits='', legendloc=None, colors=None, grid=False, fontsize=None, axissize=None, bbox_inches=None, extension='.pdf', linewidth=None, avoidlabel=None):
     plt.rc('font', family='serif')
     plt.rc('text')#, usetex=True)
 
@@ -37,10 +37,14 @@ def plot_single(x, y, name, title=None, xlabel=None, ylabel=None, marker=['-'], 
         a.tick_params(which='minor', axis='x', direction='in')
         a.tick_params(which='minor', axis='y', direction='in')
 
+        label = k
+        if avoidlabel and (avoidlabel in k):
+            label = None
+
         if colors:
-            a.plot(x[k], y[k], marker[count], color=colors[count], markersize=markersize, label=k)
+            a.plot(x[k], y[k], marker[count], color=colors[count], markersize=markersize, linewidth=linewidth, label=label)
         else:
-            a.plot(x[k], y[k], marker[count], markersize=markersize, label=k)
+            a.plot(x[k], y[k], marker[count], markersize=markersize, linewidth=linewidth, label=label)
 
         if xmin is not None: a.set_xlim(xmin,x[k].max())
         if (xmin is not None) and (xmax is not None): a.set_xlim(xmin,xmax)
@@ -129,7 +133,7 @@ def plot_overlay(x, y, name, title=None, xlabel=None, ylabel=None, marker='-', m
     fig.savefig(name+'.pdf')#, bbox_inches="tight")
 
 
-def plot_multi(x, y, name, title=None, xlabel=None, ylabel=None, marker='-', markersize=5, xmin=None, xmax=None, ymin=None, ymax=None, xunits='', yunits='', legendloc=None, colors=None, grid=False, fontsize=None, axissize=None):
+def plot_multi(x, y, name, title=None, xlabel=None, ylabel=None, marker='-', markersize=5, xmin=None, xmax=None, ymin=None, ymax=None, xunits='', yunits='', legendloc=None, colors=None, grid=False, fontsize=None, axissize=None, linewidth=None):
     plt.rc('font', family='serif')
     plt.rc('text')#, usetex=True)
 
@@ -161,11 +165,11 @@ def plot_multi(x, y, name, title=None, xlabel=None, ylabel=None, marker='-', mar
         else:
             label = 'trained'
         if colors:
-            a.plot(x[k][l], y[k][l], marker[count], color=colors[count], markersize=markersize, label=label)
+            a.plot(x[k][l], y[k][l], marker[count], color=colors[count], markersize=markersize, linewidth=linewidth, label=label)
         else:
-            a.plot(x[k][l], y[k][l], marker[count], markersize=markersize, label=label)
+            a.plot(x[k][l], y[k][l], marker[count], markersize=markersize, linewidth=linewidth, label=label)
 
-        if xmin is not None: a.set_xlim(xmin,x[k].max())
+        if xmin is not None: a.set_xlim(xmin,x[k][l].max())
         if (xmin is not None) and (xmax is not None): a.set_xlim(xmin,xmax)
         if (ymin is not None) and (ymax is not None): a.set_ylim(ymin,ymax)
         if axissize is not None:

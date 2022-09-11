@@ -8,7 +8,7 @@ blocks = [1,2,4,6,8,10,12,16,24]
 x = {}
 y = {}
 
-models = ['opt-125m','opt-350m','bert-base','gpt2']
+models = ['opt-125m','bert-base','gpt2']
 for m in models:
     y[m] = []
 
@@ -45,5 +45,3 @@ for m in models:
     y[m] = y[m] / ymax
 
 plots.plot_single(x, y, 'blocks', xlabel='$l\, /\, L$', ylabel='$\Delta\, /\, \Delta_{max}$', marker=['o-','^-','s-','P-'], colors=['tab:blue', 'tab:orange', 'tab:green', 'tab:purple'], grid=True, axissize=12, legendloc='lower right', extension='.png')
-
-    
