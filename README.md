@@ -30,7 +30,7 @@ Below are shown the density of states for the various transformers both trained 
 |<img width="1604" alt="" src="./plots/dos_vit-base.png"> | <img width="1604" alt="" src="./plots/dos_deit-base.png">|<img width="1604" alt="" src="./plots/dos_beit-base.png">|
 |<img width="1604" alt="" src="./plots/dos_bert-base.png"> | <img width="1604" alt="" src="./plots/dos_bert-large.png">| |
 
-<img align="right" width="600" alt="" src="./plots/blocks.png">
+<img align="right" width="500" alt="" src="./plots/blocks.png">
 
 ## Structures
 Since the same distribution of values is guaranteed through shuffling, differences in the density of states must arise due to structure, or how weights are arranged in a neural network. The question then arises whether these structures exist in a subset of layers. Below are shown the difference in widths of the density of states, $\Delta = W_{train} - W_{shuffled}$ where $W=E_{max}-E_{min}$ , for different number of transformer layers $l$ that participate in the Ising model. From the plot, it can be observed that $W$ increases when adding more layers, which implies that structures appear throughout the entire network rather than in a few layers. To generate the plot, run `python blocks.py`.
