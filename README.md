@@ -74,5 +74,4 @@ year = {2022},
 ## Contact
 Dusan Stosic (dbstosic@gmail.com)<br/>
 Darko Stosic (ddstosic@bu.edu)<br/>
-Tatijana Stosic (tastosic@gmail.com)<br/>
 Borko Stosic (borkostosic@gmail.com)
