@@ -21,19 +21,22 @@ The library exposes a range of functions:
 ```
 alloc(double**** J, int*** S, int** nodes, int num_layers, int num_nodes)
 py_alloc(int num_layers, int num_nodes)
-```<br/>
+```
+<br/>
 Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
 
 ```
 read(double*** J, int* nodes, int num_layers, char* dirname)
 py_read()
-```<br/>
+```
+<br/>
 Reads the network weights from a file and stores it into `J`.
 
 ```
 shuffle(double*** J, int* nodes, int num_layers, int num_reps)
 py_shuffle(int num_reps)
-```<br/>
+```
+<br/>
 Shuffles the values in `J`.
 
 ```mcmc_step```<br/>
