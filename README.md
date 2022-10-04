@@ -8,57 +8,60 @@ Deep neural networks are by construction reminiscent of magnetic model systems w
 This repository releases code for mapping transformer networks into Ising models, as well as running Monte Carlo simulations to minimize obtain the minimum energy spin configurations. The density of states from Wang-Landau simulations are also made public.
 
 ## Network weights
-First, the network weights need to be downloaded from [Huggingface](https://huggingface.co/), which include [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2), [OPT](https://huggingface.co/docs/transformers/model_doc/opt), [Bloom](https://huggingface.co/docs/transformers/model_doc/bloom), [BERT](https://huggingface.co/docs/transformers/model_doc/bert), [BeiT](https://huggingface.co/docs/transformers/model_doc/beit), [DeiT](https://huggingface.co/docs/transformers/model_doc/deit), and [ViT](https://huggingface.co/docs/transformers/model_doc/vit).
+The network weights can be downloaded from [Huggingface](https://huggingface.co/), which include [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2).
 
-An example for loading weights from ```OPT``` is provided as follows:
-```
-python convert_opt.py
-```
+An example for loading weights from one of the [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used as the basis for loading other weights from other networks (with slight changes to the layer names, etc).
 
 ## Library
-The library is contained in `dnnising.h`, along with examples of integration in C and Python. Below are instructions for running the examples in Python.
-
-For C,
-Compile and run the Microsoft Visual Studio project.
-
-For Python,
-Compile the wrapper library using ```python setup build && cp build/lib*/dnnising* .``` and run the example ```python dnnising.py```
+The library is contained in `dnnising.h`, along with examples of integration in C and Python. For C, compile and run the Microsoft Visual Studio project. For Python,
+compile the wrapper library using ```python setup build && cp build/lib*/dnnising* .``` and run the example ```python dnnising.py```.
 
 The library exposes a range of functions:
-
-* ```py_alloc```: Allocates (internally) memory for storing the exchange coefficients, J, and spins, S.
-* ```py_read```: Reads the network weights from a file and stores it into J.
-* ```py_shuffle```: Shuffles the values in J.
+* ```py_alloc```: Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
+* ```py_read```: Reads the network weights from a file and stores it into `J`.
+* ```py_shuffle```: Shuffles the values in `J`.
 * ```py_mcmc_step```: Runs a Monte Carlo (quenching) step that minimizes the energy.
-* ```py_save```: Saves the current spin configuration S into files.
+* ```py_save```: Saves the current spin configuration `S` into files.
 
+## Example
+Below we go over a Python example that loads a 125M GPT transformer model and runs Monte Carlo simulations to minimize its energy.
 
-Below is a Python example that loads a 125M GPT transformer network and minimizes runs Monte Carlo simulations to find the spin configuration that minimizes the energy.
+First, we need to import the library.
 ```
 import numpy as np
 import dnnising
+```
 
-# Parameters.
+Next we define the parameters, such as the model file, hidden size (i.e., number of neurons going ino the transformer block), number of transformer layers, etc.
+```
 model = 'opt-125m'
 hidden_size = 768
 transformer_layers = 12
 max_steps = 1000000;
 num_shuffle = 10;
+```
 
-# Allocate and read model.
+Then we allocate the internal buffers (`J` and `S`) and load the network weights into J. Note we pass in `transformer_layers * 4`, since a transformer layer consists of four unique weight matrices.
+```
 dnnising.py_alloc(transformer_layers * 4, hidden_size)
 dnnising.py_read(model)
+```
 
-# Shuffle weights.
+We can then optionally shuffle J when trying to compare between trained and random networks.
+```
 #dnnising.py_shuffle(num_shuffle)
+```
 
-# Minimize energy.
+We use Monte Carlo (quenching) simulations to minimize the energy fo the system across `max_steps` sweeps.
+```
 e = 0.0
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
 print('Final energy:', e)
+```
 
-# Save spins.
+Lastly, the spin configuration `S` can be stored under `spins/`.
+```
 dnnising.py_save()
 ```
 
