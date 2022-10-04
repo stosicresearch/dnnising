@@ -19,18 +19,23 @@ compile the wrapper library using ```python setup build && cp build/lib*/dnnisin
 The library exposes a range of functions:
 
 ```alloc```
+
 Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
 
 ```read```
+
 Reads the network weights from a file and stores it into `J`.
 
 ```shuffle```
+
 Shuffles the values in `J`.
 
 ```mcmc_step```
+
 Runs a Monte Carlo (quenching) step that minimizes the energy.
 
 ```save```
+
 Saves the current spin configuration `S` into files.
 
 ## Example
