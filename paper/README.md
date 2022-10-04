@@ -17,3 +17,5 @@ Accuracy achieved during inference after shuffling weights of the trained networ
 
 ```specificheat/```<br/>
 The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T$ and the second column denotes the specific heat $C(T)$.
+
+There are scripts for generating plots to visualize the data described above.
