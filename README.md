@@ -18,32 +18,38 @@ compile the wrapper library using ```python setup build && cp build/lib*/dnnisin
 
 The library exposes a range of functions:
 
+Allocates (internally) memory for storing the exchange coefficients, ```J```, and spins, ```S```.
 ```
-alloc(double**** J, int*** S, int** nodes, int num_layers, int num_nodes)
-py_alloc(int num_layers, int num_nodes)
-```
-<br/>
-Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
-
-```
-read(double*** J, int* nodes, int num_layers, char* dirname)
-py_read()
+void alloc(double**** J, int*** S, int** nodes, int num_layers, int num_nodes)
+void py_alloc(int num_layers, int num_nodes)
 ```
 <br/>
-Reads the network weights from a file and stores it into `J`.
 
+Reads the network weights from text files under ```dirname`` and stores them into ```J```.
 ```
-shuffle(double*** J, int* nodes, int num_layers, int num_reps)
-py_shuffle(int num_reps)
+void read(double*** J, int* nodes, int num_layers, char* dirname)
+void py_read()
 ```
 <br/>
-Shuffles the values in `J`.
 
-```mcmc_step```<br/>
-Runs a Monte Carlo (quenching) step that minimizes the energy.
+Shuffles each ```J``` value ```num_reps``` times.
+```
+void shuffle(double*** J, int* nodes, int num_layers, int num_reps)
+void py_shuffle(int num_reps)
+```
+<br/>
 
-```save```<br/>
-Saves the current spin configuration `S` into files.
+A Monte Carlo (quenching) step to minimize the energy.
+```
+double mcmc_step(double e, double*** J, int** S, int* nodes, int num_layers)
+double py_mcmc_step()
+```
+
+Saves the current spin configuration `S` into text files under ```spins/```.
+```
+void save(int** S, int* nodes, int num_layers)
+void py_save()
+```
 
 ## Example
 Below we go over a Python example that loads a 125M GPT transformer model and runs Monte Carlo simulations to minimize its energy.
@@ -88,7 +94,7 @@ dnnising.py_save()
 ```
 
 ## Data
-The data from experiments used in the paper are organized under `paper/`.
+The data and results from experiments used in the paper are organized under `paper/`.
 
 ## Citation
 If you use this work in academic research, we would appreciate citations to the following reference:
