@@ -17,11 +17,21 @@ The library is contained in `dnnising.h`, along with examples of integration in 
 compile the wrapper library using ```python setup build && cp build/lib*/dnnising* .``` and run the example ```python dnnising.py```.
 
 The library exposes a range of functions:
-* ```py_alloc```: Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
-* ```py_read```: Reads the network weights from a file and stores it into `J`.
-* ```py_shuffle```: Shuffles the values in `J`.
-* ```py_mcmc_step```: Runs a Monte Carlo (quenching) step that minimizes the energy.
-* ```py_save```: Saves the current spin configuration `S` into files.
+
+```alloc```
+Allocates (internally) memory for storing the exchange coefficients, `J`, and spins, `S`.
+
+```read```
+Reads the network weights from a file and stores it into `J`.
+
+```shuffle```
+Shuffles the values in `J`.
+
+```mcmc_step```
+Runs a Monte Carlo (quenching) step that minimizes the energy.
+
+```save```
+Saves the current spin configuration `S` into files.
 
 ## Example
 Below we go over a Python example that loads a 125M GPT transformer model and runs Monte Carlo simulations to minimize its energy.
