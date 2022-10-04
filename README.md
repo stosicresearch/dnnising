@@ -81,12 +81,7 @@ dnnising.py_save()
 ```
 
 ## Data
-The data from experiments used in the paper are organized as follows:
-* `paper/dos/` Density of states of trained and shuffled networks. For each text file, the first column represents the energy $E$ and the second column denotes the density of states $ln g(E)/N$ normalized by the number of spins $N$.
-* `paper/blocks/` Density of states for trained and shuffled networks where Ising models are constructed using a varying number of transformer layers (e.g., `blocks4` means Ising models are constructed from four transformer layers).
-* `paper/fraction/` Density of states for networks where a different fraction of weights are shuffled (e.g., `fraction0.01` means $1$ percentage of values are shuffled).
-* `paper/accuracy/` Accuracy achieved during inference after shuffling weights of the trained networks. For each text file, the first column represents the shuffling fraction $f$ and the second column denotes the task metric (i.e., accuracy for ImageNet, and PPL for the language tasks).
-* `paper/specificheat/` The specific heat computed using the density of states in `dos/`. For each text file, the first column represents the temperature $T$ and the second column denotes the specific heat $C(T)$.
+The data from experiments used in the paper are organized under `paper/`.
 
 ## Citation
 If you use this work in academic research, we would appreciate citations to the following reference:
