@@ -8,7 +8,7 @@ Deep neural networks are by construction reminiscent of magnetic model systems w
 This repository releases code for mapping transformer networks into Ising models, as well as running Monte Carlo simulations to minimize obtain the minimum energy spin configurations. The density of states from Wang-Landau simulations are also made public.
 
 ## Network weights
-The network weights can be downloaded from [Huggingface](https://huggingface.co/). An example for loading weights from [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used for loading weights from other networks with slight variations to the layer names. The weights are stored in separate text files, where rows denote input nodes and columns represent the output nodes. We provide the weights for OPT-125M at this [link](https://drive.google.com/drive/folders/1v5v7wnEI2MTcTMBJWaoIKtNDZg6YbqF0?usp=sharing).
+The network weights can be downloaded from [Huggingface](https://huggingface.co/). An example for loading weights from [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used for loading weights from other networks with slight variations to the layer names. The weights are stored in separate text files, where rows denote input nodes and columns represent the output nodes. We provide weights for a few select models at this [link](https://drive.google.com/drive/folders/1v5v7wnEI2MTcTMBJWaoIKtNDZg6YbqF0?usp=sharing).
 
 ## Library
 The library is contained in `dnnising.h`, along with examples of integration in C and Python. For C, compile and run the Microsoft Visual Studio project. For Python,
