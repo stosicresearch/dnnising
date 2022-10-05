@@ -16,7 +16,7 @@ dnnising.py_read(model)
 #dnnising.py_shuffle(num_shuffle)
 
 # Minimize energy.
-e = 0.0
+e = dnnising.py_energy()
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
 print('Final energy:', e)
