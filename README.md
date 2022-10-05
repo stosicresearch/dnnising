@@ -85,7 +85,7 @@ Shuffle `J` to get a random network with the same distribution of weights as the
 
 Run Monte Carlo (quenching) simulations to minimize the energy of the system
 ```
-e = 0.0
+e = dnnising.py_energy()
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
 print('Final energy:', e)
