@@ -18,49 +18,49 @@ compile the wrapper library using ```python setup build && cp build/lib*/dnnisin
 
 The library exposes a range of functions:
 
-Allocates (internally) memory for storing the exchange coefficients, ```J```, and spins, ```S```.
+Allocate memory for storing the exchange coefficients `J` and spins `S`, where the are initialized to $S=1$.
 ```
 void alloc(double**** J, int*** S, int** nodes, int num_layers, int num_nodes)
 void py_alloc(int num_layers, int num_nodes)
 ```
 <br/>
 
-Reads the network weights from text files under ```dirname``` and stores them into ```J```.
+Loads the network weights from text files under `<dirname>/` and stores them into `J`
 ```
 void read(double*** J, int* nodes, int num_layers, char* dirname)
 void py_read()
 ```
 <br/>
 
-Shuffles each ```J``` value ```num_reps``` times.
+Shuffle each `J` value at random `num_reps` times
 ```
 void shuffle(double*** J, int* nodes, int num_layers, int num_reps)
 void py_shuffle(int num_reps)
 ```
 <br/>
 
-A Monte Carlo (quenching) step to minimize the energy.
+Monte Carlo (quenching) step to minimize the energy
 ```
 double mcmc_step(double e, double*** J, int** S, int* nodes, int num_layers)
 double py_mcmc_step()
 ```
 
-Saves the current spin configuration ```S``` into text files under ```spins/```.
+Save the current spin configuration `S` into text files under `spins/`
 ```
 void save(int** S, int* nodes, int num_layers)
 void py_save()
 ```
 
 ## Example
-Below we go over a Python example that loads a 125M GPT transformer model and runs Monte Carlo simulations to minimize its energy.
+Below is an example in Python that loads a transformer model and runs Monte Carlo simulations to minimize its energy.
 
-First, we need to import the library.
+Import the `dnnising` library after compilation
 ```
 import numpy as np
 import dnnising
 ```
 
-Next we define the parameters, such as the model file, hidden size (i.e., number of neurons going ino the transformer block), number of transformer layers, etc.
+Define the parameters such as the diretory that holds the network weights, hidden size (number of neurons going ino the transformer block), and number of transformer layers
 ```
 model = 'opt-125m'
 hidden_size = 768
@@ -69,18 +69,18 @@ max_steps = 1000000;
 num_shuffle = 10;
 ```
 
-Then we allocate the internal buffers (`J` and `S`) and load the network weights into J. Note we pass in `transformer_layers * 4`, since a transformer layer consists of four unique weight matrices.
+Allocate `J` and `S` (internal buffers to the library) and load the network weights into `J`. Note that we use `transformer_layers * 4`, since each transformer layer consists of 4 weight matrices
 ```
 dnnising.py_alloc(transformer_layers * 4, hidden_size)
 dnnising.py_read(model)
 ```
 
-We can then optionally shuffle J when trying to compare between trained and random networks.
+Shuffle `J` to get a random network with the same distribution of weights as the trained network
 ```
 #dnnising.py_shuffle(num_shuffle)
 ```
 
-We use Monte Carlo (quenching) simulations to minimize the energy fo the system across `max_steps` sweeps.
+Run Monte Carlo (quenching) simulations to minimize the energy of the system
 ```
 e = 0.0
 for i in range(max_steps):
@@ -88,7 +88,7 @@ for i in range(max_steps):
 print('Final energy:', e)
 ```
 
-Lastly, the spin configuration `S` can be stored under `spins/`.
+Store the spin configurations `S` as text files under `spins/`, which can take $S\pm1$ values.
 ```
 dnnising.py_save()
 ```
