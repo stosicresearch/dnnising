@@ -19,8 +19,6 @@ dnnising.py_shuffle(num_shuffle)
 e = dnnising.py_energy()
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
-    if i % 10000 == 0:
-        print(i, e)
 print('Final energy:', e)
 
 # Save spins.
