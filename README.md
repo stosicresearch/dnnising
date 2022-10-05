@@ -94,6 +94,15 @@ Store the spin configurations `S` as text files under `spins/`, which can take $
 dnnising.py_save()
 ```
 
+Below are energies for a few transformer networks after training and shuffling.
+
+| Network   | Trained Energy | Shuffled Energy |
+| ----------| ---------| -------- |
+| opt-125m  | -209625  |  -79749  |
+| vit-base  | -609510  | -177188  |
+| bert-base | -225609  | -84333   |
+
+
 ## Data
 The data and results from experiments used in the paper are organized under `paper/`.
 
