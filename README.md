@@ -25,7 +25,7 @@ void py_alloc(int num_layers, int num_nodes)
 ```
 <br/>
 
-Reads the network weights from text files under ```dirname`` and stores them into ```J```.
+Reads the network weights from text files under ```dirname``` and stores them into ```J```.
 ```
 void read(double*** J, int* nodes, int num_layers, char* dirname)
 void py_read()
@@ -45,7 +45,7 @@ double mcmc_step(double e, double*** J, int** S, int* nodes, int num_layers)
 double py_mcmc_step()
 ```
 
-Saves the current spin configuration `S` into text files under ```spins/```.
+Saves the current spin configuration ```S``` into text files under ```spins/```.
 ```
 void save(int** S, int* nodes, int num_layers)
 void py_save()
