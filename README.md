@@ -3,14 +3,12 @@
 ## Introduction
 While deep neural networks have emerged as a disruptive technology capable of solving a range of complex problems, the underlying mechanisms that makes them so effective continue to elude us. For example, there remains no clear way to distinguish a well- from a poorly- trained network other than through evaluation on tasks, which by itself can be insufficient to determine whether a network has been properly trained.
 
-Deep neural networks are by construction reminiscent of magnetic model systems where nodes are connected by couplings (weights), giving rise to collective behavior that cannot be described by their individual parts. [This](https://arxiv.org/abs/2209.08678) work borrows the concepts of statistical physics (and thermodynamics) to analyze deep neural networks by mapping them to a well-known problem in statistical physics, the Ising model. With this formulation, the weights of a neural network are taken to represent exchange interactions between spins represented by the nodes of the network, and the system can be studied using various properties of spin glass models.
+Deep neural networks are by construction reminiscent of magnetic model systems where nodes are connected by couplings (weights), giving rise to collective behavior that cannot be described by their individual parts. This work (see [paper](https://arxiv.org/abs/2209.08678)) borrows the concepts of statistical physics (and thermodynamics) to analyze deep neural networks by mapping them to a well-known problem in statistical physics, the Ising model. With this formulation, the weights of a neural network are taken to represent exchange interactions between spins represented by the nodes of the network, and the system can be studied using various properties of spin glass models.
 
 This repository releases code for mapping transformer networks into Ising models, as well as running Monte Carlo simulations to minimize obtain the minimum energy spin configurations. The density of states from Wang-Landau simulations are also made public.
 
 ## Network weights
-The network weights can be downloaded from [Huggingface](https://huggingface.co/), which include [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2).
-
-An example for loading weights from one of the [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used as the basis for loading other weights from other networks (with slight changes to the layer names, etc).
+The network weights can be downloaded from [Huggingface](https://huggingface.co/). An example for loading weights from [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used for loading weights from other networks with slight variations to the layer names. The weights are stored in separate text files, where rows denote input nodes and columns represent the output nodes. We provide the weights for OPT-125M at this [link](https://drive.google.com/drive/folders/1v5v7wnEI2MTcTMBJWaoIKtNDZg6YbqF0?usp=sharing).
 
 ## Library
 The library is contained in `dnnising.h`, along with examples of integration in C and Python. For C, compile and run the Microsoft Visual Studio project. For Python,
