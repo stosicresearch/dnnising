@@ -89,7 +89,7 @@ for i in range(max_steps):
 print('Final energy:', e)
 ```
 
-Store the spin configurations `S` as text files under `spins/`, which can take $S\pm1$ values.
+Store the spin configurations `S` as text files under `spins/`, which can take $S\pm1$ values
 ```
 dnnising.py_save()
 ```
