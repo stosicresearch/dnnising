@@ -13,7 +13,7 @@ dnnising.py_alloc(transformer_layers * 4, hidden_size)
 dnnising.py_read(model)
 
 # Shuffle weights.
-dnnising.py_shuffle(num_shuffle)
+#dnnising.py_shuffle(num_shuffle)
 
 # Minimize energy.
 e = dnnising.py_energy()
