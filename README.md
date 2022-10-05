@@ -36,7 +36,7 @@ void shuffle(double*** J, int* nodes, int num_layers, int num_reps)
 void py_shuffle(int num_reps)
 ```
 
-Compute energy of the system as $E=\sum_{<l,i,j>} J_{lij} S_{lij}$.
+Compute energy of the system as $E=-\sum_{<l,i,j>} J_{lij} S_{lij}$.
 ```
 double energy(double*** J, int** S, int* nodes, int num_layers)
 py_energy()
