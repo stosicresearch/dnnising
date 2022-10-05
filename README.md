@@ -23,21 +23,24 @@ Allocate memory for storing the exchange coefficients `J` and spins `S`, where t
 void alloc(double**** J, int*** S, int** nodes, int num_layers, int num_nodes)
 void py_alloc(int num_layers, int num_nodes)
 ```
-<br/>
 
-Loads the network weights from text files under `<dirname>/` and stores them into `J`
+Load the network weights from text files under `<dirname>/` and stores them into `J`
 ```
 void read(double*** J, int* nodes, int num_layers, char* dirname)
 void py_read()
 ```
-<br/>
 
 Shuffle each `J` value at random `num_reps` times
 ```
 void shuffle(double*** J, int* nodes, int num_layers, int num_reps)
 void py_shuffle(int num_reps)
 ```
-<br/>
+
+Compute energy of the system as $E=\sum_<l,i,j>J_{lij}S_{lij}$.
+```
+double energy(double*** J, int** S, int* nodes, int num_layers)
+py_energy()
+```
 
 Monte Carlo (quenching) step to minimize the energy
 ```
