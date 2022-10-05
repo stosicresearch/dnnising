@@ -34,6 +34,18 @@ void shuffle(double*** J, int* nodes, int num_layers, int num_reps)
 void py_shuffle(int num_reps)
 ```
 
+Compute the number of spins in ```S```.
+```
+int spins(int* nodes, int num_layers)
+py_spins()
+```
+
+Compute number of bonds in ```J```.
+```
+int bonds(int* nodes, int num_layers)
+py_bonds()
+```
+
 Compute energy of the system as $E=-\sum_{<l,i,j>} J_{lij} S_{lij}$.
 ```
 double energy(double*** J, int** S, int* nodes, int num_layers)
@@ -86,7 +98,7 @@ Run Monte Carlo (quenching) simulations to minimize the energy of the system
 e = dnnising.py_energy()
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
-print('Final energy:', e)
+print('Final energy per spin:', e / dnnising.py_spins())
 ```
 
 Store the spin configurations `S` as text files under `spins/`, which can take $S\pm1$ values
