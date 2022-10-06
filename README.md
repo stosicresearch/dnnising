@@ -5,7 +5,7 @@ While deep neural networks have emerged as a disruptive technology capable of so
 
 Deep neural networks are by construction reminiscent of magnetic model systems where nodes are connected by couplings (weights), giving rise to collective behavior that cannot be described by their individual parts. This work (see [paper](https://arxiv.org/abs/2209.08678)) borrows the concepts of statistical physics (and thermodynamics) to analyze deep neural networks by mapping them to a well-known problem in statistical physics, the Ising model. With this formulation, the weights of a neural network are taken to represent exchange interactions between spins represented by the nodes of the network, and the system can be studied using various properties of spin glass models.
 
-This repository releases code for mapping transformer networks into Ising models, as well as running Monte Carlo simulations to minimize obtain the minimum energy spin configurations. The density of states from Wang-Landau simulations are also made public.
+This repository releases code for mapping transformer networks into Ising models, as well as Monte Carlo simulations that minimize the energy. The density of states from Wang-Landau simulations are also made public.
 
 ## Network weights
 The network weights can be downloaded from [Huggingface](https://huggingface.co/). An example for loading weights from [OPT](https://huggingface.co/docs/transformers/model_doc/opt) models is provided in `convert_opt.py`, which can be used for loading weights from other networks with slight variations to the layer names. The weights are stored in separate text files, where rows denote input nodes and columns represent the output nodes. We provide weights for a few select models at this [link](https://drive.google.com/drive/folders/1v5v7wnEI2MTcTMBJWaoIKtNDZg6YbqF0?usp=sharing).
@@ -98,7 +98,7 @@ Run Monte Carlo (quenching) simulations to minimize the energy of the system
 e = dnnising.py_energy()
 for i in range(max_steps):
     e = dnnising.py_mcmc_step(e)
-print('Final energy per spin:', e / dnnising.py_spins())
+print('Final energy:', e))
 ```
 
 Store the spin configurations `S` as text files under `spins/`, which can take $S\pm1$ values
@@ -106,13 +106,15 @@ Store the spin configurations `S` as text files under `spins/`, which can take $
 dnnising.py_save()
 ```
 
-Below are energies for a few transformer networks after training and shuffling.
+Below are results from Monte Carlo simulations of Ising models constructed from a few transformer networks using the trained weights and after shuffling.
 
-| Network   | Trained Energy | Shuffled Energy |
-| ----------| ---------| -------- |
-| opt-125m  | -209625  |  -79749  |
-| vit-base  | -609510  | -177188  |
-| bert-base | -225609  | -84333   |
+| Network   | # Bonds  | # Spins  | Trained Energy | Shuffled Energy |
+| ----------| --------- | ---------| ---------| -------- |
+| vit-base  | 70778880   | 65280    | -609510  | -181891  |
+| bert-base | 70778880   | 65280    |  -225609 | -84333   |
+| opt-125m  | 70778880   | 65280    | -209625  |  -79749  |
+| opt-350m  | 251658240  | 173056   | -601322  | -180562  |
+| opt-1.3b  | 1006632960 | 346112   | -1832284 |          |
 
 
 ## Data
