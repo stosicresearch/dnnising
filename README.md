@@ -108,8 +108,8 @@ dnnising.py_save()
 
 Below are results from Monte Carlo simulations of Ising models constructed from a few transformer networks using the trained weights and after shuffling.
 
-| Network   | Transformer Layers | Nodes | Bonds  | Spins  | Trained Energy | Shuffled Energy |
-| ----------| --------- | --------- | --------- | ---------| ---------| -------- |
+| Network   | Layers | Nodes | Bonds  | Spins  | $E_{trained}$ | $E_{shuffled}$ |
+| :---------- | ---------: | ---------: | ---------: | ---------: | ---------: | --------: |
 | vit-base  | 12 | 768 | 70778880   | 65280    | -609510  | -181891  |
 | bert-base | 12 | 768 | 70778880   | 65280    |  -225609 | -84333   |
 | opt-125m  | 12 | 768 | 70778880   | 65280    | -209625  |  -79749  |
