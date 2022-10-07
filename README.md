@@ -40,7 +40,7 @@ int spins(int* nodes, int num_layers)
 py_spins()
 ```
 
-Compute number of bonds in ```J```.
+Compute the number of bonds in ```J```.
 ```
 int bonds(int* nodes, int num_layers)
 py_bonds()
@@ -108,13 +108,13 @@ dnnising.py_save()
 
 Below are results from Monte Carlo simulations of Ising models constructed from a few transformer networks using the trained weights and after shuffling.
 
-| Network   | # Bonds  | # Spins  | Trained Energy | Shuffled Energy |
-| ----------| --------- | ---------| ---------| -------- |
-| vit-base  | 70778880   | 65280    | -609510  | -181891  |
-| bert-base | 70778880   | 65280    |  -225609 | -84333   |
-| opt-125m  | 70778880   | 65280    | -209625  |  -79749  |
-| opt-350m  | 251658240  | 173056   | -601322  | -180562  |
-| opt-1.3b  | 1006632960 | 346112   | -1832284 | -317504  |
+| Network   | Transformer Layers | Nodes | Bonds  | Spins  | Trained Energy | Shuffled Energy |
+| ----------| --------- | --------- | --------- | ---------| ---------| -------- |
+| vit-base  | 12 | 768 | 70778880   | 65280    | -609510  | -181891  |
+| bert-base | 12 | 768 | 70778880   | 65280    |  -225609 | -84333   |
+| opt-125m  | 12 | 768 | 70778880   | 65280    | -209625  |  -79749  |
+| opt-350m  | 24 | 1024 | 251658240  | 173056   | -601322  | -180562  |
+| opt-1.3b  | 24 | 2048 | 1006632960 | 346112   | -1832284 | -317504  |
 
 
 ## Data
