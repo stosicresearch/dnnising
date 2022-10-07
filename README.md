@@ -114,7 +114,7 @@ Below are results from Monte Carlo simulations of Ising models constructed from 
 | bert-base | 70778880   | 65280    |  -225609 | -84333   |
 | opt-125m  | 70778880   | 65280    | -209625  |  -79749  |
 | opt-350m  | 251658240  | 173056   | -601322  | -180562  |
-| opt-1.3b  | 1006632960 | 346112   | -1832284 |          |
+| opt-1.3b  | 1006632960 | 346112   | -1832284 | -317504  |
 
 
 ## Data
